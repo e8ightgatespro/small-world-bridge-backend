@@ -14,20 +14,20 @@ export class BridgeService {
     return bridgesFound;
   }
 
-  private getSmallWorldBridgesForDeck(cardToMatch: Card, deck: Card[]): Bridge[] {
+  private getSmallWorldBridgesForDeck(targetCard: Card, deck: Card[]): Bridge[] {
     const bridges: Bridge[] = [];
-    const cardsToBanishFromDeck: Card[] = deck.filter(cardInDeck => cardInDeck.compareStats(cardToMatch));
+    const cardsToBanishFromDeck: Card[] = deck.filter(cardInDeck => cardInDeck.compareStats(targetCard));
 
     cardsToBanishFromDeck.forEach(cardToBanish => {
         const cardsToRevealInHand: Card[] = deck.filter(cardInDeck => 
-            cardInDeck.compareStats(cardToMatch)
+            cardInDeck.compareStats(cardToBanish)
         );
 
         cardsToRevealInHand.forEach(cardToRevealInHand => {
             bridges.push(new Bridge(
                 cardToRevealInHand,
                 cardToBanish,
-                cardToMatch
+                targetCard
             ));
         });
     });
