@@ -1,0 +1,15 @@
+{
+  "apphosting": {
+    "backendId": "small-world-bridge-backend-2",
+    "rootDir": "/",
+    "ignore": [
+      "node_modules",
+      ".git",
+      "firebase-debug.log",
+      "firebase-debug.*.log",
+      "functions",
+      "package-lock.json"
+    ],
+    "alwaysDeployFromSource": true
+  }
+}
